@@ -21,6 +21,7 @@ class SearchableDropdown<T> extends StatefulWidget {
   final bool isCaseSensitiveSearch;
   final String closeButtonText;
   final Color closeButtonColor;
+  final TextStyle closeButtonTextStyle;
   final bool displayClearButton;
   final Widget clearIcon;
   final Function onClear;
@@ -45,6 +46,7 @@ class SearchableDropdown<T> extends StatefulWidget {
     this.isCaseSensitiveSearch = false,
     this.closeButtonText = "Close",
     this.closeButtonColor = Colors.grey,
+    this.closeButtonTextStyle,
     this.displayClearButton = false,
     this.clearIcon = const Icon(Icons.clear),
     this.onClear,
@@ -192,6 +194,7 @@ class _SearchableDropdownState<T> extends State<SearchableDropdown<T>> {
                       closeButtonText: widget.closeButtonText,
                       style: _textStyle,
                       closeButtonColor: widget.closeButtonColor,
+                      closeButtonTextStyle : widget.closeButtonTextStyle,
                     );
                   });
               if (widget.onChanged != null && value != null) {
@@ -290,6 +293,7 @@ class DropdownDialog<T> extends StatefulWidget {
   final bool isCaseSensitiveSearch;
   final String closeButtonText;
   final Color closeButtonColor;
+  final TextStyle closeButtonTextStyle;
   final TextStyle style;
 
   DropdownDialog({
@@ -299,6 +303,7 @@ class DropdownDialog<T> extends StatefulWidget {
     this.isCaseSensitiveSearch = false,
     this.closeButtonText,
     this.closeButtonColor,
+    this.closeButtonTextStyle,
     this.style,
   })  : assert(items != null),
         super(key: key);
@@ -461,10 +466,10 @@ class _DropdownDialogState extends State<DropdownDialog> {
             color: widget.closeButtonColor,
             child: Text(
               widget.closeButtonText,
-              style: TextStyle(
+              style: widget.closeButtonTextStyle == null ? TextStyle(
                 color: Colors.black,
                 fontSize: widget.style.fontSize * 0.75,
-              ),
+              ) : widget.closeButtonTextStyle,
             ),
           ),
         ],
