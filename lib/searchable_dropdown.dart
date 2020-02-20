@@ -191,6 +191,7 @@ class _SearchableDropdownState<T> extends State<SearchableDropdown<T>> {
                       isCaseSensitiveSearch: widget.isCaseSensitiveSearch,
                       closeButtonText: widget.closeButtonText,
                       style: _textStyle,
+                      closeButtonColor: widget.closeButtonColor,
                     );
                   });
               if (widget.onChanged != null && value != null) {
