@@ -20,6 +20,7 @@ class SearchableDropdown<T> extends StatefulWidget {
   final bool isExpanded;
   final bool isCaseSensitiveSearch;
   final String closeButtonText;
+  final Color closeButtonColor;
   final bool displayClearButton;
   final Widget clearIcon;
   final Function onClear;
@@ -43,6 +44,7 @@ class SearchableDropdown<T> extends StatefulWidget {
     this.isExpanded = false,
     this.isCaseSensitiveSearch = false,
     this.closeButtonText = "Close",
+    this.closeButtonColor = Colors.grey,
     this.displayClearButton = false,
     this.clearIcon = const Icon(Icons.clear),
     this.onClear,
@@ -286,6 +288,7 @@ class DropdownDialog<T> extends StatefulWidget {
   final Widget hint;
   final bool isCaseSensitiveSearch;
   final String closeButtonText;
+  final Color closeButtonColor;
   final TextStyle style;
 
   DropdownDialog({
@@ -294,6 +297,7 @@ class DropdownDialog<T> extends StatefulWidget {
     this.hint,
     this.isCaseSensitiveSearch = false,
     this.closeButtonText,
+    this.closeButtonColor,
     this.style,
   })  : assert(items != null),
         super(key: key);
@@ -453,6 +457,7 @@ class _DropdownDialogState extends State<DropdownDialog> {
             onPressed: () {
               Navigator.pop(context);
             },
+            color: widget.closeButtonColor,
             child: Text(
               widget.closeButtonText,
               style: TextStyle(
