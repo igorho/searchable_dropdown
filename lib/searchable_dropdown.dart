@@ -324,11 +324,12 @@ class _DropdownDialogState extends State<DropdownDialog> {
     int i = 0;
     widget.items.forEach((item) {
       bool isContains = false;
+      Text procurar = item.child;
       if (widget.isCaseSensitiveSearch) {
-        isContains = item.child.toString().indexOf(keyword) > -1;
+        isContains = procurar.data.toString().indexOf(keyword) > -1;
       } else {
         isContains =
-            item.child.toString().toLowerCase().indexOf(keyword.toLowerCase()) > -1;
+            procurar.data.toString().toLowerCase().indexOf(keyword.toLowerCase()) > -1;
       }
       if (keyword.isEmpty || isContains) {
         shownIndexes.add(i);
